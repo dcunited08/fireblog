@@ -1,3 +1,5 @@
 export const environment = {
-  production: false
+  production: false,
+    name: 'Test4',
+    firebase_url: 'none'
 };

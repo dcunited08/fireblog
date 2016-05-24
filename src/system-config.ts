@@ -6,8 +6,10 @@ const map: any = {
 };
 
 /** User packages configuration. */
-const packages: any = {
+let packages: any = {
 };
+
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 /***********************************************************************************************
@@ -20,6 +22,7 @@ const barrels: string[] = [
   '@angular/compiler',
   '@angular/http',
   '@angular/router',
+  '@angular/router-deprecated',
   '@angular/platform-browser',
   '@angular/platform-browser-dynamic',
 
@@ -29,6 +32,11 @@ const barrels: string[] = [
   // App specific barrels.
   'app',
   'app/shared',
+  'app/toobar',
+  'app/toolbar',
+  'app/homepage',
+  'app/homepage/+homepage',
+  'app/login',
   /** @cli-barrel */
 ];
 

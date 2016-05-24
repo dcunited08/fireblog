@@ -1,31 +1,45 @@
 <!doctype html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>Fireblog</title>
-  <base href="/">
+    <head>
+        <meta charset="utf-8">
+        <title>Fireblog</title>
+        <base href="/">
 
-  {{#unless environment.production}}
-  <script src="/ember-cli-live-reload.js" type="text/javascript"></script>
-  {{/unless}}
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <fireblog-app>Loading...</fireblog-app>
+        {{#unless environment.production}}
+        <script src="/ember-cli-live-reload.js" type="text/javascript"></script>
+        {{/unless}}
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+              integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+              crossorigin="anonymous">
 
-  
-
-    {{#each scripts.polyfills}}<script src="{{.}}"></script>{{/each}}
-    <script>
-      System.import('system-config.js').then(function () {
-        System.import('main');
-      }).catch(console.error.bind(console));
-    </script>
-
-  
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"
+              integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r"
+              crossorigin="anonymous">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.0.0/bootstrap-social.min.css">
+    </head>
+    <body>
+        <fireblog-app>Loading...</fireblog-app>
 
 
+        {{#each scripts.polyfills}}
+        <script src="{{.}}"></script>
+        {{/each}}
+        <script>
+            System.import('system-config.js').then(function () {
+                System.import('main');
+            }).catch(console.error.bind(console));
+        </script>
 
-</body>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+                integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+                crossorigin="anonymous"></script>
+
+
+    </body>
 </html>
