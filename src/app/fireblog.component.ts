@@ -6,6 +6,7 @@ import {LoginComponent} from './login/login.component';
 import {Blog} from './blog.type';
 import {environment} from './environment'
 import {BlogpostsService} from "./blogposts.service";
+import {BlogpostComponent} from "./blogpost/blogpost.component";
 
 @Component({
     moduleId: module.id,
@@ -20,6 +21,7 @@ import {BlogpostsService} from "./blogposts.service";
 })
 @RouteConfig([
     {path: '/home', name: 'Homepage', component: HomepageComponent, useAsDefault: true},
+    {path: '/blogpost/:id', name: 'Blogpost', component: BlogpostComponent },
     {path: '/login', name: 'Login', component: LoginComponent}
 ])
 export class FireblogAppComponent {

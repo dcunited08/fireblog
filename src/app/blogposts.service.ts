@@ -1,10 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Blogpost} from "./blogpost.type";
 import {environment} from './environment';
-
 import * as _ from 'lodash';
-
-// import {firebase} from 'firebase';
 
 declare var firebase: any;
 
@@ -21,9 +18,15 @@ export class BlogpostsService {
 
     findAll(): Promise<Blogpost[]> {
         return this.database.ref('blogposts').once('value').then((output) => {
-            let vals = _.values(output.val());
-            return vals;
+            return _.values(output.val());
         });
+    }
+
+    find(id: number): Promise<Blogpost> {
+        return this.findAll()
+            .then((blogposts) => {
+                return _.find(blogposts, {id: id});
+            })
     }
 
 }
