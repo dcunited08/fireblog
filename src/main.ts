@@ -6,5 +6,6 @@ if (environment.production) {
   enableProdMode();
 }
 
-bootstrap(FireblogAppComponent);
+bootstrap(FireblogAppComponent, [
+]);
 

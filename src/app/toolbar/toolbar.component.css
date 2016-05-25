@@ -1,3 +1,6 @@
 nav.navbar {
     height: 50px;
 }
+nav .navbar-collapse.collapse.in{
+    /*background: wheat;*/
+}

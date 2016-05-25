@@ -5,5 +5,10 @@
 export const environment = {
     production: false,
     name: '',
-    firebase_url: ''
+    firebase_config: {
+        apiKey: "",
+        authDomain: "",
+        databaseURL: "",
+        storageBucket: "",
+    }
 };

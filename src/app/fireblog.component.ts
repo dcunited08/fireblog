@@ -5,6 +5,7 @@ import {HomepageComponent} from './homepage/homepage.component';
 import {LoginComponent} from './login/login.component';
 import {Blog} from './blog.type';
 import {environment} from './environment'
+import {BlogpostsService} from "./blogposts.service";
 
 @Component({
     moduleId: module.id,
@@ -13,7 +14,8 @@ import {environment} from './environment'
     styleUrls: ['fireblog.component.css'],
     directives: [ToolbarComponent, ROUTER_DIRECTIVES],
     providers: [
-        ROUTER_PROVIDERS
+        ROUTER_PROVIDERS,
+        BlogpostsService
     ]
 })
 @RouteConfig([
@@ -22,12 +24,12 @@ import {environment} from './environment'
 ])
 export class FireblogAppComponent {
     blog: Blog;
-    title = 'fireblog works!';
-
+    title: string;
     constructor() {
+        this.title = 'My Blog';
         this.blog = {
-            name: environment.name,
-            firebase_url: environment.firebase_url
+            name: environment.name
         };
+
     }
 }

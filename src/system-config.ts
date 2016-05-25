@@ -3,10 +3,11 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
+    'lodash': 'vendor/lodash/lodash.js'
 };
 
 /** User packages configuration. */
-let packages: any = {
+const packages: any = {
 };
 
 
@@ -37,6 +38,7 @@ const barrels: string[] = [
   'app/homepage',
   'app/homepage/+homepage',
   'app/login',
+  'app/blogpost',
   /** @cli-barrel */
 ];
 
