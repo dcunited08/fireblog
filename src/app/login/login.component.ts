@@ -21,11 +21,8 @@ export class LoginComponent implements OnInit {
     doLogin(provider: string) {
         console.log(provider);
         this.auth.login(provider)
-            .then((logged_in) => {
-if(logged_in){
-    this.router.navigate( ['Admin'] );
-
-}
+            .then(() => {
+                this.router.navigate(['Admin']);
             })
 
 

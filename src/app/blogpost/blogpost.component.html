@@ -1,7 +1,7 @@
 <div class="col-md-4" *ngIf="view == 'summary'">
     <h2>{{blogpost.heading}}</h2>
     <p>{{blogpost.summary}}</p>
-    <p><a class="btn btn-default" (click)="onSelect(blogpost)" role="button">View details &raquo;</a></p>
+    <p><a class="btn btn-default" [routerLink]="['Blogpost', {id:blogpost.id}]" role="button">View details &raquo;</a></p>
 </div>
 
 <div *ngIf="view == undefined">
@@ -13,10 +13,33 @@
 
 <div *ngIf="view == 'edit'">
     <h3>Edit post:</h3>
-    <h2>{{blogpost.heading}}</h2>
-    <p>{{blogpost.summary}}</p>
-    <p>
-        {{blogpost.body}}
+
+    <!--<input #heading >-->
+    <!--<input #summary >-->
+    <!--<input #body >-->
+    <div class="container">
+        {{diagnostic}}
+        <h1>Hero Form</h1>
+        <form (ngSubmit)="onSubmit()" #blogpostForm="ngForm">
+            <div class="form-group">
+                <label for="heading">Heading</label>
+                <input type="text" class="form-control" required
+                       [(ngModel)]="blogpost.heading">
+            </div>
+            <div class="form-group">
+                <label for="summary">Summary</label>
+                <input type="text" class="form-control"
+                       [(ngModel)]="blogpost.summary">
+            </div>
+            <div class="form-group">
+                <label for="summary">Body</label>
+                <textarea class="form-control"
+                       [(ngModel)]="blogpost.body" rows="4" cols="50"></textarea>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+    </div>
+
 </div>
 
 

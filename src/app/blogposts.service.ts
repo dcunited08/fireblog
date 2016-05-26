@@ -27,4 +27,19 @@ export class BlogpostsService {
             })
     }
 
+    save(post: Blogpost){
+        console.log(post);
+        var update = {};
+        if(!post.id){
+            post.id = Date.now();
+        }
+        console.log(post);
+
+        update[post.id] = post;
+        return this.database.ref('blogposts').update(update).then((output) => {
+            console.log(output);
+        });
+
+    }
+
 }

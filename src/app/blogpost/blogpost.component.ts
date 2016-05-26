@@ -1,15 +1,17 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {Blogpost} from "../blogpost.type";
-import {RouteParams, Router} from '@angular/router-deprecated';
+import {RouteParams, Router, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
 import {BlogpostsService} from '../blogposts.service';
 import {AuthService} from "../auth.service";
+import { NgForm }    from '@angular/common';
 
 
 @Component({
     moduleId: module.id,
     selector: 'app-blogpost',
     templateUrl: 'blogpost.component.html',
-    styleUrls: ['blogpost.component.css']
+    styleUrls: ['blogpost.component.css'],
+    directives: [ROUTER_DIRECTIVES]
 })
 export class BlogpostComponent implements OnInit {
 
@@ -28,19 +30,25 @@ export class BlogpostComponent implements OnInit {
         }
 
         if (this._routeParams.get('id') !== null) {
-            this.loadBlogpost(parseInt(this._routeParams.get('id')));
+            this.load(parseInt(this._routeParams.get('id')));
+        }
+
+        if (this._routeParams.get('view') !== null) {
+            this.view = this._routeParams.get('view');
         }
     }
 
-    loadBlogpost(_id: number) {
+    load(_id: number) {
         this.blogpostService.find(_id)
             .then((post) => {
                 this.blogpost = post;
             });
     }
 
-    onSelect(post: Blogpost) {
-        this.router.navigate(['Blogpost', {id: post.id}]);
+    onSubmit() {
+        this.blogpostService.save(this.blogpost);
     }
+
+    get diagnostic() { return JSON.stringify(this.blogpost); }
 
 }
