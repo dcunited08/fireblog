@@ -1,5 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core';
-import {Router} from '@angular/router-deprecated';
+import {Router, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
 
 import {BlogpostComponent} from '../blogpost/blogpost.component'
 import {Blogpost} from "../blogpost.type";
@@ -10,7 +10,10 @@ import {BlogpostsService} from "../blogposts.service";
     selector: 'app-homepage',
     templateUrl: 'homepage.component.html',
     styleUrls: ['homepage.component.css'],
-    directives: [BlogpostComponent]
+    directives: [
+        BlogpostComponent,
+        ROUTER_DIRECTIVES
+    ]
 })
 export class HomepageComponent implements OnInit {
     @Input() blogposts: Blogpost[];

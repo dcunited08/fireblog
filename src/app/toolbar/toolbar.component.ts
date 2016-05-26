@@ -1,6 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {ROUTER_DIRECTIVES} from '@angular/router-deprecated';
-
 import {Blog} from '../blog.type';
 
 @Component({

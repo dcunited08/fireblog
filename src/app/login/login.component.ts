@@ -1,4 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+import {AuthService} from "../auth.service";
+import {Router} from '@angular/router-deprecated';
+
 
 @Component({
     moduleId: module.id,
@@ -8,7 +11,8 @@ import {Component, OnInit} from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-    constructor() {
+    constructor(private auth: AuthService, private router: Router) {
+        console.log(auth);
     }
 
     ngOnInit() {
@@ -16,6 +20,15 @@ export class LoginComponent implements OnInit {
 
     doLogin(provider: string) {
         console.log(provider);
+        this.auth.login(provider)
+            .then((logged_in) => {
+if(logged_in){
+    this.router.navigate( ['Admin'] );
+
+}
+            })
+
+
     }
 
 }

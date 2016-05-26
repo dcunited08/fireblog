@@ -1,9 +1,15 @@
-<!-- Example row of columns -->
-<div class="row">
-
-    <app-blogpost *ngFor="let blogpost of blogposts" [blogpost] = 'blogpost' ></app-blogpost>
-
-
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+    <div class="container">
+        <h1>Hello, world! This is FireBlog!</h1>
+        <p>This is a blog implementation that uses <a href="https://angular.io/">Angular 2</a> and <a href="https://firebase.google.com/">Firebase</a> to be lightweight and try out the features available in these two platforms.</p>
+        <p><a class="btn btn-primary btn-lg"  [routerLink]="['Features']" role="button">Learn more &raquo;</a></p>
+    </div>
 </div>
 
+<!-- Example row of columns -->
+<div class="row">
+    <app-blogpost *ngFor="let blogpost of blogposts" [blogpost]='blogpost' [view]='"summary"'>
+    </app-blogpost>
+</div>
 <hr>

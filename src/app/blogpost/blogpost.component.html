@@ -1,5 +1,24 @@
-<div class="col-md-4">
+<div class="col-md-4" *ngIf="view == 'summary'">
     <h2>{{blogpost.heading}}</h2>
     <p>{{blogpost.summary}}</p>
     <p><a class="btn btn-default" (click)="onSelect(blogpost)" role="button">View details &raquo;</a></p>
 </div>
+
+<div *ngIf="view == undefined">
+    <h2>{{blogpost.heading}}</h2>
+    <p>{{blogpost.summary}}</p>
+    <p>
+        {{blogpost.body}}
+</div>
+
+<div *ngIf="view == 'edit'">
+    <h3>Edit post:</h3>
+    <h2>{{blogpost.heading}}</h2>
+    <p>{{blogpost.summary}}</p>
+    <p>
+        {{blogpost.body}}
+</div>
+
+
+
+

@@ -1,0 +1,9 @@
+<p>
+  Welcome {{user?.displayName}}
+</p>
+<ul>
+    <li><a [routerLink]="['AdminHome']">Admin Home</a></li>
+    <li><a [routerLink]="['AdminNewBlogpost']">New Post</a></li>
+    <li><a (click) = "logout()">Logout</a></li>
+</ul>
+<router-outlet></router-outlet>

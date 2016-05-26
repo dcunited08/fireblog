@@ -2,18 +2,16 @@ import {Injectable} from '@angular/core';
 import {Blogpost} from "./blogpost.type";
 import {environment} from './environment';
 import * as _ from 'lodash';
+import {FirebaseService} from "./firebase.service";
 
-declare var firebase: any;
 
 @Injectable()
 export class BlogpostsService {
 
     database: any;
 
-    constructor() {
-        // Initialize Firebase
-        firebase.initializeApp(environment.firebase_config);
-        this.database = firebase.database();
+    constructor(private firebaseService: FirebaseService) {
+        this.database = this.firebaseService.firebase.database();
     }
 
     findAll(): Promise<Blogpost[]> {
