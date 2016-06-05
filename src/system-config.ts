@@ -41,6 +41,7 @@ const barrels: string[] = [
   'app/admin',
   'app/admin/admin-home',
   'app/features',
+  'app/blogposts',
   /** @cli-barrel */
 ];
 

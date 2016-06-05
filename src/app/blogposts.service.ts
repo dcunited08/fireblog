@@ -42,4 +42,11 @@ export class BlogpostsService {
 
     }
 
+    delete(post: Blogpost){
+        console.log('delete', post);
+        if(confirm('Do you want to delete: "'+post.heading+'"')){
+            console.log('deleting (not really)');
+        }
+    }
+
 }

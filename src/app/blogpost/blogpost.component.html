@@ -36,6 +36,7 @@
                 <textarea class="form-control"
                        [(ngModel)]="blogpost.body" rows="4" cols="50"></textarea>
             </div>
+            <button type="button" class="btn" (click)="onDelete(blogpost)">Delete</button>
             <button type="submit" class="btn btn-default">Submit</button>
         </form>
     </div>

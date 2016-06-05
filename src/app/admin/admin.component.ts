@@ -3,6 +3,7 @@ import {RouteConfig, ROUTER_DIRECTIVES, Router} from '@angular/router-deprecated
 import {AdminHomeComponent} from './admin-home/admin-home.component';
 import {AuthService} from '../auth.service'
 import {BlogpostComponent} from '../blogpost/blogpost.component'
+import {BlogpostsComponent} from "../blogposts/blogposts.component";
 
 
 @Component({
@@ -15,7 +16,8 @@ import {BlogpostComponent} from '../blogpost/blogpost.component'
 @RouteConfig([
     {path: '/', name: 'AdminHome', component: AdminHomeComponent, useAsDefault: true},
     {path: '/blogpost', name: 'AdminNewBlogpost', component: BlogpostComponent},
-    {path: '/blogpost/:id', name: 'AdminBlogpost', component: BlogpostComponent}
+    {path: '/blogpost/:id', name: 'AdminBlogpost', component: BlogpostComponent},
+    {path: '/blogposts', name: 'AdminBlogposts', component: BlogpostsComponent}
 ])
 export class AdminComponent implements OnInit {
 

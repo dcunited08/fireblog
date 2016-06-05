@@ -4,6 +4,7 @@
 <ul>
     <li><a [routerLink]="['AdminHome']">Admin Home</a></li>
     <li><a [routerLink]="['AdminNewBlogpost', {foo:'foo'}]">New Post</a></li>
+    <li><a [routerLink]="['AdminBlogposts']">Posts List</a></li>
     <li><a (click) = "logout()">Logout</a></li>
 </ul>
 <router-outlet></router-outlet>

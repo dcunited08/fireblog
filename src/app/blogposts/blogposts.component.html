@@ -1,0 +1,8 @@
+<p>
+  blogposts works!
+</p>
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let blogpost of blogposts" >
+        <a [routerLink]="['AdminBlogpost', {id:blogpost.id,view:'edit'}]">{{blogpost?.heading}}</a>
+    </li>
+</ul>

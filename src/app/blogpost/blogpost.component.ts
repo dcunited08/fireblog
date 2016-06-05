@@ -49,6 +49,10 @@ export class BlogpostComponent implements OnInit {
         this.blogpostService.save(this.blogpost);
     }
 
+    onDelete(){
+        this.blogpostService.delete(this.blogpost);
+    }
+
     get diagnostic() { return JSON.stringify(this.blogpost); }
 
 }
