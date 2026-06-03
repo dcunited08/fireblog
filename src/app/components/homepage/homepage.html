@@ -1,0 +1,21 @@
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="p-5 mb-4 bg-light rounded-3">
+  <div class="container-fluid py-5">
+    <h1>Hello, world! This is FireBlog!</h1>
+    <p>This is a blog implementation that uses <a href="https://angular.dev/">Angular 18</a> and <a href="https://firebase.google.com/">Firebase</a> to be lightweight and try out the features available in these two platforms.</p>
+    <p><a class="btn btn-primary btn-lg" routerLink="/features" role="button">Learn more &raquo;</a></p>
+  </div>
+</div>
+
+<!-- Example row of columns -->
+<div class="row">
+  <div class="col-md-4 mb-4" *ngFor="let post of posts">
+    <h2>{{ post.heading }}</h2>
+    <p>{{ post.summary }}</p>
+    <p><a class="btn btn-outline-secondary" [routerLink]="['/blogpost', post.id]" role="button">View details &raquo;</a></p>
+  </div>
+
+  <div *ngIf="posts.length === 0" class="col-12 text-center text-muted mt-5">
+    No posts found. Go to the Admin Dashboard to create one!
+  </div>
+</div>
