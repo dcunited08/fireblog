@@ -1,0 +1,36 @@
+name: TypeScript Compile
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install dependencies
+      run: npm install --ignore-scripts --legacy-peer-deps
+    - name: Create typings workaround
+      run: |
+        mkdir -p typings
+        cat << 'EOF' > typings/browser.d.ts
+        /// <reference path="../node_modules/typescript/lib/lib.es6.d.ts" />
+        declare module 'lodash' {
+          var _: any;
+          export = _;
+        }
+        EOF
+    - name: Run TypeScript Compile
+      run: npx tsc -p src/tsconfig.json
