@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-inverse navbar-dark bg-dark fixed-top" style="margin-bottom: 20px;">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">JDanielCook</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbar">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/" routerLinkActive="active">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/features" routerLinkActive="active">Features</a>
+        </li>
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <a class="nav-link" routerLink="/admin" routerLinkActive="active">Admin</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item" *ngIf="!isLoggedIn">
+          <a class="nav-link" style="cursor: pointer;" (click)="login()">Login with Twitter</a>
+        </li>
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <a class="nav-link" style="cursor: pointer;" (click)="logout()">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+  <br/>
+  <hr>
+  <footer>
+    <p>Brought to you by <a href="https://github.com/dcunited08/fireblog">FireBlog</a></p>
+  </footer>
+</div>

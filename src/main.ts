@@ -1,11 +1,5 @@
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import { enableProdMode } from '@angular/core';
-import { FireblogAppComponent, environment } from './app/index';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { appConfig } from './app/app.config';
+import { App } from './app/app';
 
-if (environment.production) {
-  enableProdMode();
-}
-
-bootstrap(FireblogAppComponent, [
-]);
-
+bootstrapApplication(App, appConfig).catch((err) => console.error(err));

@@ -1,0 +1,14 @@
+<div *ngIf="loading" class="text-center mt-5 text-muted">
+  Loading post...
+</div>
+
+<div *ngIf="!loading && post">
+  <h2>{{ post.heading }}</h2>
+  <p class="lead text-muted">{{ post.summary }}</p>
+  <hr>
+  <div [innerHTML]="parsedBody"></div>
+</div>
+
+<div *ngIf="!loading && !post" class="text-center mt-5">
+  <h2>Post not found</h2>
+</div>
