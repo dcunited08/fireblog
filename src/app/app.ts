@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { RouterOutlet, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AuthService } from './services/auth.service';
@@ -10,23 +10,24 @@ import { AuthService } from './services/auth.service';
   templateUrl: './app.html',
 })
 export class App implements OnInit {
-  isLoggedIn = false;
+  // A signal so the navbar re-renders when the async auth check resolves (the app is zoneless).
+  readonly isLoggedIn = signal(false);
 
   constructor(public authService: AuthService) {}
 
   async ngOnInit() {
-    this.isLoggedIn = await this.authService.isLoggedIn();
+    this.isLoggedIn.set(await this.authService.isLoggedIn());
   }
 
   async login() {
     const success = await this.authService.login('twitter');
     if (success) {
-      this.isLoggedIn = true;
+      this.isLoggedIn.set(true);
     }
   }
 
   async logout() {
     await this.authService.logout();
-    this.isLoggedIn = false;
+    this.isLoggedIn.set(false);
   }
 }

@@ -12,15 +12,15 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/features" routerLinkActive="active">Features</a>
         </li>
-        <li class="nav-item" *ngIf="isLoggedIn">
+        <li class="nav-item" *ngIf="isLoggedIn()">
           <a class="nav-link" routerLink="/admin" routerLinkActive="active">Admin</a>
         </li>
       </ul>
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item" *ngIf="!isLoggedIn">
+        <li class="nav-item" *ngIf="!isLoggedIn()">
           <a class="nav-link" style="cursor: pointer;" (click)="login()">Login with Twitter</a>
         </li>
-        <li class="nav-item" *ngIf="isLoggedIn">
+        <li class="nav-item" *ngIf="isLoggedIn()">
           <a class="nav-link" style="cursor: pointer;" (click)="logout()">Logout</a>
         </li>
       </ul>

@@ -21,8 +21,8 @@ export class BlogpostsService {
   }
 
   async find(id: number): Promise<Blogpost | undefined> {
-    const allPosts = await this.findAll();
-    return allPosts.find(post => post.id === id);
+    const snapshot = await get(ref(firebaseDb, `blogposts/${id}`));
+    return snapshot.exists() ? snapshot.val() : undefined;
   }
 
   async save(post: Blogpost): Promise<void> {
